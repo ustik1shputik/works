@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x_value = np.arange(1, 11)
+def my_function(x): #создаем функцию
+    return (np.sqrt(1 + np.e**(np.sqrt(x)) + np.cos(x**2)) / np.abs(1 - np.sin(x)**3)) + np.log(np.abs(2*x))
+y = [my_function(x) for x in x_value] #считает значение
+
+#график для основного массива
+plt.plot(x_value, y, label='Основной массив (линейный)')
+plt.xlabel('x')
+plt.ylabel('Значение функции')
+plt.show()
+
+half_index = len(x_value) // 2 #индекс половины
+half_x_value = x_value[:half_index]
+half_y = y[:half_index]
+
+plt.scatter( half_x_value, half_y, label='Срез первой половины массива (точечный)', color='blue')
+plt.show()
