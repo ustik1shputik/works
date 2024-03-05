@@ -1,1 +1,10 @@
+import numpy as np
 
+m = np.zeros((8,8), dtype=int) #создаем матрицу с нулевыми значениями
+
+#заменяем все четные элементы на 1
+for i in range(8):
+    for j in range(8):
+        if (i + j) % 2 == 0:
+            m[i,j] = 1
+print(m)
