@@ -1,0 +1,9 @@
+x = int(input())
+if x < (-5):
+    print(x, "принадлежит (-infinity, -5)")
+elif x in range(-5,5):
+    print(x, "принадлежит [-5,5]")
+elif x > 5:
+    print(x, "принадлежит (5, +infinity)")
+else:
+    print("x нет ни в одном из промежутков")
