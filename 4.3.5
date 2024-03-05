@@ -1,0 +1,35 @@
+import math
+
+x = int(input("Введите x"))
+y = int(input("Введите y"))
+def calculator(x, y, operation): #operation выполняет мат. действия в зависимости от знака
+    if operation == '+':
+        return x + y
+    elif operation == '-':
+        return x - y
+    elif operation == '*':
+        return x * y
+    elif operation == '/':
+        if y != 0:
+            return x / y
+        else:
+            return "Деление на ноль невозможно"
+    elif operation == 'e':
+        return math.exp(x + y)
+    elif operation == 'sin':
+        return math.sin(x + y)
+    elif operation == 'cos':
+        return math.cos(x + y)
+    elif operation == 'pow':
+        return x ** y
+    else:
+        return "Невозможная операция"
+
+print("x + y =", calculator(x, y, '+'))
+print("x - y =", calculator(x, y, '-'))
+print("x * y =", calculator(x, y, '*'))
+print("x / y =", calculator(x, y, '/'))
+print("e ** (x + y) =", calculator(x, y, 'e'))
+print("sin(x + y) =", calculator(x, y, 'sin'))
+print("cos(x + y) =", calculator(x, y, 'cos'))
+print("x ** y =", calculator(x, y, 'pow'))
