@@ -1,0 +1,11 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import statistics
+
+data = np.random.rand(10) #создаем рандомный массив на интервале
+mid = sum(data) / len(data)
+median = statistics.median(data)
+
+plt.scatter(range(len(data)), data)
+
+plt.show()
