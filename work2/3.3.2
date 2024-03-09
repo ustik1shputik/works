@@ -1,0 +1,14 @@
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
+
+url = "https://raw.githubusercontent.com/akmand/datasets/master/iris.csv"
+df = pd.read_csv(url)
+
+# Создание объектов для нормализации
+min_max_scaler = MinMaxScaler()
+standard_scaler = StandardScaler()
+
+df['sepal_length_cm_normalized'] = min_max_scaler.fit_transform(df[['sepal_length_cm']]) #минимаксное преобразование
+df['sepal_width_cm_normalized'] = standard_scaler.fit_transform(df[['sepal_width_cm']]) #z-масштабирования
+
+print(df[['sepal_length_cm', 'sepal_length_cm_normalized', 'sepal_width_cm', 'sepal_width_cm_normalized']].head())
