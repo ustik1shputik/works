@@ -1,0 +1,41 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Определяем 4 точки в трехмерном пространстве (x, y, z)
+points = {
+    'A': (1, 2, 3),
+    'B': (4, 5, 6),
+    'C': (7, 8, 9),
+    'D': (10, 11, 12)
+}
+
+# Вычисляем Евклидово расстояние между каждой парой точек
+for point1 in points:
+    for point2 in points:
+        if point1 != point2:
+            euclidean_dist = np.linalg.norm(np.array(points[point1]) - np.array(points[point2]))
+            euclidean_dist_sq = euclidean_dist ** 2
+            chebyshev_dist = np.max(np.abs(np.array(points[point1]) - np.array(points[point2])))
+            hamming_dist = np.count_nonzero((np.array(points[point1]) != np.array(points[point2])))
+
+            print(f"Расстояния между точками {point1} и {point2}:")
+            print(f"Евклидово расстояние: {euclidean_dist}")
+            print(f"Квадрат Евклидового расстояния: {euclidean_dist_sq}")
+            print(f"Расстояние Чебышева: {chebyshev_dist}")
+            print(f"Расстояние Хэмминга: {hamming_dist}")
+            print()
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Извлекаем координаты x, y, z для каждой точки и строим их на графике
+for point, coord in points.items():
+    x, y, z = coord
+    ax.scatter(x, y, z, label=point)
+
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
+plt.show()
